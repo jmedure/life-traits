@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 242 242 242;  /* Pure white */
+    --foreground: 18 18 18;        /* Pure black */
+    --muted: 207 207 207;       /* Light gray for input backgrounds */
+    --guide-line: 207 207 207;  /* Slightly darker gray for the circle */
+  }
+
+  .dark {
+    --background: 18 18 18;     /* Dark gray background */
+    --foreground: 242 242 242;  /* Pure white */
+    --muted: 38 38 38;         /* Darker gray for input backgrounds */
+    --guide-line: 45 45 45;    /* Slightly lighter gray for the circle */
+  }
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+::selection {
+  background-color: rgb(var(--foreground) / 0.1);
+}
+
+.stop-color-foreground {
+  stop-color: hsl(var(--foreground));
+}
+
+.stop-color-foreground\/80 {
+  stop-color: hsl(var(--foreground) / 0.8);
+}
+
+@keyframes heat-haze {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-1px) rotate(0.5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(1px) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.animate-heat-haze {
+  animation: heat-haze 2s infinite;
+  animation-play-state: running;
+}
+
+:root[class~="dark"] .animate-heat-haze {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+:root[class~="light"] .animate-heat-haze {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes subtle-heat-haze {
+  0% {
+    transform: translateY(0) skewX(0deg);
+  }
+  25% {
+    transform: translateY(-1px) skewX(0.5deg);
+  }
+  50% {
+    transform: translateY(0) skewX(-0.5deg);
+  }
+  75% {
+    transform: translateY(1px) skewX(0.5deg);
+  }
+  100% {
+    transform: translateY(0) skewX(0deg);
+  }
+}
+
+.animate-subtle-heat-haze {
+  animation: subtle-heat-haze 3s infinite;
+}
