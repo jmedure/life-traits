@@ -51,7 +51,7 @@ export function SeasonalTitle() {
     }> = [];
 
     const createParticles = () => {
-      const particleCount = 30;
+      const particleCount = 60;
       particles = [];
 
       for (let i = 0; i < particleCount; i++) {
