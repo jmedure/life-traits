@@ -366,7 +366,6 @@ export default function SkillPolygon() {
                                 <motion.div
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
                                   className={cn(
                                     "flex items-center gap-3 p-2 rounded-lg",
                                     "bg-muted/50 backdrop-blur-sm",
